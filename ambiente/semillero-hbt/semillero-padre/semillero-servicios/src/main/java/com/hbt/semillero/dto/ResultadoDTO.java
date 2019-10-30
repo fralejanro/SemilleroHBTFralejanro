@@ -3,10 +3,11 @@ package com.hbt.semillero.dto;
 import java.io.Serializable;
 
 /**
- * Indica el resultado de ejecución.
  * 
- * @author Johnny Soto
- *
+ * <b>Descripción:<b> Clase que determina
+ * <b>Caso de Uso:<b> 
+ * @author Francisco Alejandro Hoyos Rojas
+ * @version
  */
 public class ResultadoDTO implements Serializable {
 

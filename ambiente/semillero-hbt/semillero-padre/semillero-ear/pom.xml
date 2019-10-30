@@ -29,26 +29,26 @@
 
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-ear-plugin</artifactId>
-				<configuration>
-					<modules>
-						<!-- Semillero -->
-						<webModule>
-							<groupId>com.hbt.semillero.servicios</groupId>
-							<artifactId>semillero-servicios</artifactId>
-							<contextRoot>/semillero-servicios</contextRoot>
-						</webModule>
-						<webModule>
-							<groupId>com.hbt.semillero.web</groupId>
-							<artifactId>semillero-web</artifactId>
-							<contextRoot>/SemilleroWEB</contextRoot>
-						</webModule>
-					</modules>
-				</configuration>
-			</plugin>
-		</plugins>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-ear-plugin</artifactId>
+					<configuration>
+						<modules>
+							<!-- Semillero -->
+							<webModule>
+								<groupId>com.hbt.semillero.servicios</groupId>
+								<artifactId>semillero-servicios</artifactId>
+								<contextRoot>/semillero-servicios</contextRoot>
+							</webModule>
+							<webModule>
+								<groupId>com.hbt.semillero.web</groupId>
+								<artifactId>semillero-web</artifactId>
+								<contextRoot>/SemilleroWEB</contextRoot>
+							</webModule>
+						</modules>
+					</configuration>
+				</plugin>
+			</plugins>
 	</build>
 </project>
