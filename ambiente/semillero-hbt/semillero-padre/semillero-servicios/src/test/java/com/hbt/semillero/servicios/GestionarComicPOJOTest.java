@@ -55,16 +55,16 @@ public class GestionarComicPOJOTest {
 		gestionarComicPOJO.agregarComicDTOLista(comicDTO);
 		Assert.assertTrue(gestionarComicPOJO.getListaComics().size() == 2); // Comprueba que solo hayan 2 elementos en la lista de comics
 		comicDTO = new ComicDTO();
-		comicDTO = gestionarComicPOJO.crearComicDTO("2", 
-				"Captain America Corps 1-5 USA ",
+		comicDTO = gestionarComicPOJO.crearComicDTO("3", 
+				"The Spectacular Spider-Man v2 USA",
 				"Panini Comics", 
 				TematicaENUM.FANTASTICO, 
-				"BIBLIOTECA MARVEL", 128, 
-				new BigDecimal(5000), 
-				"Phillippe Briones, Roger Stern", 
-				Boolean.FALSE, LocalDate.now(), 
-				EstadoENUM.ACTIVO, 
-				5L);
+				"MARVEL COMICS", 208, 
+				new BigDecimal(6225), 
+				"Straczynski,Deodato Jr.,Barnes,Eaton", 
+				Boolean.TRUE, LocalDate.now(), 
+				EstadoENUM.INACTIVO, 
+				0L);
 		gestionarComicPOJO.agregarComicDTOLista(comicDTO);
 		Assert.assertTrue(gestionarComicPOJO.getListaComics().size() == 3); // Comprueba que solo hayan 3 elementos en la lista de comics
 	}

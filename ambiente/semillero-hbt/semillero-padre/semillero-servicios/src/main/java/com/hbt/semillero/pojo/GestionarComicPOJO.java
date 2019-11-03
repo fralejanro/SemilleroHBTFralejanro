@@ -13,8 +13,7 @@ import com.hbt.semillero.entidades.EstadoENUM;
 import com.hbt.semillero.entidades.TematicaENUM;
 
 /**
- * <b>Descripción:<b> 
- * <b>Caso de Uso:<b>
+ * <b>Descripción:<b> <b>Caso de Uso:<b>
  * 
  * @author Francisco Alejandro Hoyos Rojas
  * @version 1.0
@@ -28,8 +27,8 @@ public class GestionarComicPOJO {
 
 	/**
 	 * 
-	 * Método encargado de crear un Comic
-	 * <b>Caso de Uso</b>
+	 * Método encargado de crear un Comic <b>Caso de Uso</b>
+	 * 
 	 * @author Francisco Alejandro Hoyos Rojas
 	 * 
 	 * @return Un nuevo Comic
@@ -45,8 +44,8 @@ public class GestionarComicPOJO {
 
 	/**
 	 * 
-	 * Método encargado de crear un Comic 
-	 * <b>Caso de Uso</b>
+	 * Método encargado de crear un Comic <b>Caso de Uso</b>
+	 * 
 	 * @author Francisco Alejandro Hoyos Rojas
 	 *
 	 */
@@ -73,8 +72,8 @@ public class GestionarComicPOJO {
 
 	/**
 	 * 
-	 * Método encargado de agregar un Comic a la lista de comics 
-	 * <b>Caso de Uso</b>
+	 * Método encargado de agregar un Comic a la lista de comics <b>Caso de Uso</b>
+	 * 
 	 * @author Francisco Alejandro Hoyos Rojas
 	 * 
 	 * @param comicDTO Comic que va a ser agregado a la lista de comics
@@ -89,13 +88,14 @@ public class GestionarComicPOJO {
 
 	/**
 	 * 
-	 * Método encargado de modificar el nombre de un comic
-	 * <b>Caso de Uso</b>
+	 * Método encargado de modificar el nombre de un comic <b>Caso de Uso</b>
+	 * 
 	 * @author Frsncisco Alejandro Hoyos Rojas
 	 * 
-	 * @param id id del Comic que va a ser modificado
+	 * @param id     id del Comic que va a ser modificado
 	 * @param nombre Nuevo nombre que va a tener el comic
-	 * @return Si se modifica el comic se retorna el comic modificado, de lo contrario null
+	 * @return Si se modifica el comic se retorna el comic modificado, de lo
+	 *         contrario null
 	 */
 	public ComicDTO modificarComicDTO(String id, String nombre) {
 		ComicDTO comicModificar = null;
@@ -108,11 +108,12 @@ public class GestionarComicPOJO {
 		}
 		return comicModificar;
 	}
-	
+
 	/**
 	 * 
-	 * Metodo encargado de eliminar un comic de la lista de comics
-	 * <b>Caso de Uso</b>
+	 * Metodo encargado de eliminar un comic de la lista de comics <b>Caso de
+	 * Uso</b>
+	 * 
 	 * @author Francisco Alejandro Hoyos Rojas
 	 * 
 	 * @param id id del comic a eliminar
@@ -121,21 +122,24 @@ public class GestionarComicPOJO {
 	public Boolean eliminarComicDTO(String id) {
 		int i = 0;
 		ComicDTO comicEliminar = null;
-		while(i<listaComics.size()) {
-			comicEliminar = listaComics.get(i);
-			if(comicEliminar.getId().equals(id)) {
-				listaComics.remove(comicEliminar);
-				return true;
+		if (listaComics != null) {
+			while (i < listaComics.size()) {
+				comicEliminar = listaComics.get(i);
+				if (comicEliminar.getId().equals(id)) {
+					listaComics.remove(comicEliminar);
+					return true;
+				}
+				i++;
 			}
-			i++;
 		}
 		return false;
 	}
 
 	/**
 	 * 
-	 * Método encargado de modificar un comic en una posición específica de la lista de comics
-	 * <b>Caso de Uso</b>
+	 * Método encargado de modificar un comic en una posición específica de la lista
+	 * de comics <b>Caso de Uso</b>
+	 * 
 	 * @author Francisco Alejandro Hoyos Rojas
 	 * 
 	 * @param posicion
