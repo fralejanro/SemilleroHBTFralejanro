@@ -83,6 +83,18 @@ public class ComicDTO implements Serializable {
 	public ComicDTO() {
 		
 	}
+	
+	/**
+	 * 
+	 * Constructor de la clase.
+	 * @param id Identificador unico del comic
+	 * @param nombre Nombre o titulo del comic o revista grafica
+	 */
+	public ComicDTO(String id, String nombre) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+	}
 
 	/**
 	 * Constructor de la clase.
