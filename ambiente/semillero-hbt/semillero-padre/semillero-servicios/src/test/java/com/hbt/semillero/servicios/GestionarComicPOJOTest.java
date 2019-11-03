@@ -87,7 +87,7 @@ public class GestionarComicPOJOTest {
 	 * 
 	 * Metodo encargado de verificar que se elimine el comic con id 1 de la lista de comics
 	 * <b>Caso de Uso</b>
-	 * @author aleja
+	 * @author Francisco Alejandro Hoyos Rojas
 	 *
 	 */
 	@Test(enabled=true)
