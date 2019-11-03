@@ -11,8 +11,7 @@ import com.hbt.semillero.entidades.EstadoENUM;
 import com.hbt.semillero.entidades.TematicaENUM;
 
 /**
- * <b>Descripción:<b> Clase que determina como almacenar y entegar los datos del
- * Comic 
+ * <b>Descripción:<b> Clase que determina como almacenar y entegar los datos del Comic 
  * <b>Caso de Uso:<b> 
  * @author Francisco Alejandro Hoyos Rojas
  * @version 1.0
@@ -20,8 +19,8 @@ import com.hbt.semillero.entidades.TematicaENUM;
 public class ComicDTO implements Serializable {
 
 	/**
-	 * Atributo que determina  
-	 */
+	 * Atributo que determina el número de serialización
+     */
 	private static final long serialVersionUID = -5495724378797813755L;
 
 	/**
@@ -76,34 +75,30 @@ public class ComicDTO implements Serializable {
 	 * la venta
 	 */
 	private Long cantidad;
-
+	
 	/**
 	 * Constructor de la clase.
-	 * @param id
-	 * @param nombre
+	 * 
 	 */
-	public ComicDTO(String id, String nombre) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
+	public ComicDTO() {
+		
 	}
 
-
-
 	/**
 	 * Constructor de la clase.
-	 * @param id
-	 * @param nombre
-	 * @param editorial
-	 * @param tematica
-	 * @param coleccion
-	 * @param numeroPaginas
-	 * @param precio
-	 * @param autores
-	 * @param color
-	 * @param fechaVenta
-	 * @param estado
-	 * @param cantidad
+	 * 
+	 * @param id Identificador unico del comic
+	 * @param nombre Nombre o titulo del comic o revista grafica
+	 * @param editorial Empresa editorial quien publico el comic
+	 * @param tematicaEnum Tipo de comic
+	 * @param coleccion Conjunto de publicaciones de la que el comic es parte
+	 * @param numeroPaginas Cantidad de las paginas que contiene el comic
+	 * @param precio Valor en pesos del comic
+	 * @param autores Autor u autores del comic
+	 * @param color	Define si el comic es a color o no
+	 * @param fechaVenta Fecha de inicio de la venta del comic
+	 * @param estadoEnum Define si el comic tiene existencia para la venta o no
+	 * @param cantidad Cantidad de comics en inventario disponibles para la venta
 	 */
 	public ComicDTO(String id, String nombre, String editorial, TematicaENUM tematicaEnum, String coleccion,
 			Integer numeroPaginas, BigDecimal precio, String autores, Boolean color, LocalDate fechaVenta,
@@ -123,10 +118,8 @@ public class ComicDTO implements Serializable {
 		this.cantidad = cantidad;
 	}
 
-
-
 	/**
-	 * Metodo encargado de retornar el valor del atributo id
+	 * Método encargado de retornar el valor del atributo id
 	 * @return El id asociado a la clase
 	 */
 	public String getId() {
@@ -134,7 +127,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo id
+	 * Método encargado de modificar el valor del atributo id
 	 * @param id El nuevo id a modificar.
 	 */
 	public void setId(String id) {
@@ -142,7 +135,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo nombre
+	 * Método encargado de retornar el valor del atributo nombre
 	 * @return El nombre asociado a la clase
 	 */
 	public String getNombre() {
@@ -150,7 +143,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo nombre
+	 * Método encargado de modificar el valor del atributo nombre
 	 * @param nombre El nuevo nombre a modificar.
 	 */
 	public void setNombre(String nombre) {
@@ -158,7 +151,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo editorial
+	 * Método encargado de retornar el valor del atributo editorial
 	 * @return El editorial asociado a la clase
 	 */
 	public String getEditorial() {
@@ -166,7 +159,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo editorial
+	 * Método encargado de modificar el valor del atributo editorial
 	 * @param editorial El nuevo editorial a modificar.
 	 */
 	public void setEditorial(String editorial) {
@@ -174,7 +167,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo tematica
+	 * Método encargado de retornar el valor del atributo tematica
 	 * @return El tematica asociado a la clase
 	 */
 	public TematicaENUM getTematicaENUM() {
@@ -182,7 +175,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo tematica
+	 * Método encargado de modificar el valor del atributo tematica
 	 * @param tematica El nuevo tematica a modificar.
 	 */
 	public void setTematicaENUM(TematicaENUM tematicaEnum) {
@@ -190,7 +183,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo coleccion
+	 * Método encargado de retornar el valor del atributo coleccion
 	 * @return El coleccion asociado a la clase
 	 */
 	public String getColeccion() {
@@ -198,7 +191,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo coleccion
+	 * Método encargado de modificar el valor del atributo coleccion
 	 * @param coleccion El nuevo coleccion a modificar.
 	 */
 	public void setColeccion(String coleccion) {
@@ -206,7 +199,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo numeroPaginas
+	 * Método encargado de retornar el valor del atributo numeroPaginas
 	 * @return El numeroPaginas asociado a la clase
 	 */
 	public Integer getNumeroPaginas() {
@@ -214,7 +207,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo numeroPaginas
+	 * Método encargado de modificar el valor del atributo numeroPaginas
 	 * @param numeroPaginas El nuevo numeroPaginas a modificar.
 	 */
 	public void setNumeroPaginas(Integer numeroPaginas) {
@@ -222,7 +215,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo precio
+	 * Método encargado de retornar el valor del atributo precio
 	 * @return El precio asociado a la clase
 	 */
 	public BigDecimal getPrecio() {
@@ -230,7 +223,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo precio
+	 * Método encargado de modificar el valor del atributo precio
 	 * @param precio El nuevo precio a modificar.
 	 */
 	public void setPrecio(BigDecimal precio) {
@@ -238,7 +231,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo autores
+	 * Método encargado de retornar el valor del atributo autores
 	 * @return El autores asociado a la clase
 	 */
 	public String getAutores() {
@@ -246,7 +239,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo autores
+	 * Método encargado de modificar el valor del atributo autores
 	 * @param autores El nuevo autores a modificar.
 	 */
 	public void setAutores(String autores) {
@@ -254,7 +247,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo color
+	 * Método encargado de retornar el valor del atributo color
 	 * @return El color asociado a la clase
 	 */
 	public Boolean getColor() {
@@ -262,7 +255,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo color
+	 * Método encargado de modificar el valor del atributo color
 	 * @param color El nuevo color a modificar.
 	 */
 	public void setColor(Boolean color) {
@@ -270,7 +263,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo fechaVenta
+	 * Método encargado de retornar el valor del atributo fechaVenta
 	 * @return El fechaVenta asociado a la clase
 	 */
 	public LocalDate getFechaVenta() {
@@ -278,7 +271,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo fechaVenta
+	 * Método encargado de modificar el valor del atributo fechaVenta
 	 * @param fechaVenta El nuevo fechaVenta a modificar.
 	 */
 	public void setFechaVenta(LocalDate fechaVenta) {
@@ -286,7 +279,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo estado
+	 * Método encargado de retornar el valor del atributo estado
 	 * @return El estado asociado a la clase
 	 */
 	public EstadoENUM getEstadoEnum() {
@@ -294,7 +287,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo estado
+	 * Método encargado de modificar el valor del atributo estado
 	 * @param estado El nuevo estado a modificar.
 	 */
 	public void setEstadoEnum(EstadoENUM estadoEnum) {
@@ -302,7 +295,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo cantidad
+	 * Método encargado de retornar el valor del atributo cantidad
 	 * @return El cantidad asociado a la clase
 	 */
 	public Long getCantidad() {
@@ -310,7 +303,7 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo cantidad
+	 * Método encargado de modificar el valor del atributo cantidad
 	 * @param cantidad El nuevo cantidad a modificar.
 	 */
 	public void setCantidad(Long cantidad) {

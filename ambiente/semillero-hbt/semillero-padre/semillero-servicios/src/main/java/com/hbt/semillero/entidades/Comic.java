@@ -17,17 +17,18 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
- * <b>Descripción:<b> Clase que representa la entidad Comic
- * <b>Caso de Uso:<b>
+ * <b>Descripción:<b> Clase que representa la entidad Comic <b>Caso de Uso:<b>
  *
- * @author Francisco Alejandro Hoyos Rojas	
+ * @author Francisco Alejandro Hoyos Rojas
  * @version 1.0
  */
-
 @Entity
 @Table(name = "COMIC")
 public class Comic implements Serializable {
 
+	/**
+	 * Atributo que determina el número de serialización
+	 */
 	private static final long serialVersionUID = 4322034079745146450L;
 	/**
 	 * Atributo que define el identificador unico del comic
@@ -87,24 +88,24 @@ public class Comic implements Serializable {
 	 */
 	public Comic() {
 
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
 	 * Constructor de la clase.
 	 * 
-	 * @param id
-	 * @param nombre
-	 * @param editorial
-	 * @param tematicaEnum
-	 * @param coleccion
-	 * @param numeroPaginas
-	 * @param precio
-	 * @param autores
-	 * @param color
-	 * @param fechaVenta
-	 * @param estadoEnum
-	 * @param cantidad
+	 * @param id            Identificador unico del comic
+	 * @param nombre        Nombre o titulo del comic o revista grafica
+	 * @param editorial     Empresa editorial quien publico el comic
+	 * @param tematicaEnum  Tipo de comic
+	 * @param coleccion     Conjunto de publicaciones de la que el comic es parte
+	 * @param numeroPaginas Cantidad de las paginas que contiene el comic
+	 * @param precio        Valor en pesos del comic
+	 * @param autores       Autor u autores del comic
+	 * @param color         Define si el comic es a color o no
+	 * @param fechaVenta    Fecha de inicio de la venta del comic
+	 * @param estadoEnum    Define si el comic tiene existencia para la venta o no
+	 * @param cantidad      Cantidad de comics en inventario disponibles para la
+	 *                      venta
 	 */
 	public Comic(String id, String nombre, String editorial, TematicaENUM tematicaEnum, String coleccion,
 			Integer numeroPaginas, BigDecimal precio, String autores, Boolean color, LocalDate fechaVenta,
@@ -125,7 +126,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo id
+	 * Método encargado de retornar el valor del atributo id
 	 * 
 	 * @return El id asociado a la clase
 	 */
@@ -138,7 +139,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo id
+	 * Método encargado de modificar el valor del atributo id
 	 * 
 	 * @param id El nuevo id a modificar.
 	 */
@@ -147,7 +148,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo nombre
+	 * Método encargado de retornar el valor del atributo nombre
 	 * 
 	 * @return El nombre asociado a la clase
 	 */
@@ -157,7 +158,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo nombre
+	 * Método encargado de modificar el valor del atributo nombre
 	 * 
 	 * @param nombre El nuevo nombre a modificar.
 	 */
@@ -166,7 +167,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo editorial
+	 * Método encargado de retornar el valor del atributo editorial
 	 * 
 	 * @return El editorial asociado a la clase
 	 */
@@ -176,7 +177,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo editorial
+	 * Método encargado de modificar el valor del atributo editorial
 	 * 
 	 * @param editorial El nuevo editorial a modificar.
 	 */
@@ -185,7 +186,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo tematicaEnum
+	 * Método encargado de retornar el valor del atributo tematicaEnum
 	 * 
 	 * @return El tematicaEnum asociado a la clase
 	 */
@@ -196,7 +197,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo tematicaEnum
+	 * Método encargado de modificar el valor del atributo tematicaEnum
 	 * 
 	 * @param tematicaEnum El nuevo tematicaEnum a modificar.
 	 */
@@ -205,7 +206,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo coleccion
+	 * Método encargado de retornar el valor del atributo coleccion
 	 * 
 	 * @return El coleccion asociado a la clase
 	 */
@@ -215,7 +216,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo coleccion
+	 * Método encargado de modificar el valor del atributo coleccion
 	 * 
 	 * @param coleccion El nuevo coleccion a modificar.
 	 */
@@ -224,7 +225,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo numeroPaginas
+	 * Método encargado de retornar el valor del atributo numeroPaginas
 	 * 
 	 * @return El numeroPaginas asociado a la clase
 	 */
@@ -234,7 +235,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo numeroPaginas
+	 * Método encargado de modificar el valor del atributo numeroPaginas
 	 * 
 	 * @param numeroPaginas El nuevo numeroPaginas a modificar.
 	 */
@@ -243,7 +244,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo precio
+	 * Método encargado de retornar el valor del atributo precio
 	 * 
 	 * @return El precio asociado a la clase
 	 */
@@ -253,7 +254,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo precio
+	 * Método encargado de modificar el valor del atributo precio
 	 * 
 	 * @param precio El nuevo precio a modificar.
 	 */
@@ -262,7 +263,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo autores
+	 * Método encargado de retornar el valor del atributo autores
 	 * 
 	 * @return El autores asociado a la clase
 	 */
@@ -272,7 +273,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo autores
+	 * Método encargado de modificar el valor del atributo autores
 	 * 
 	 * @param autores El nuevo autores a modificar.
 	 */
@@ -281,7 +282,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo color
+	 * Método encargado de retornar el valor del atributo color
 	 * 
 	 * @return El color asociado a la clase
 	 */
@@ -291,7 +292,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo color
+	 * Método encargado de modificar el valor del atributo color
 	 * 
 	 * @param color El nuevo color a modificar.
 	 */
@@ -300,7 +301,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo fechaVenta
+	 * Método encargado de retornar el valor del atributo fechaVenta
 	 * 
 	 * @return El fechaVenta asociado a la clase
 	 */
@@ -310,7 +311,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo fechaVenta
+	 * Método encargado de modificar el valor del atributo fechaVenta
 	 * 
 	 * @param fechaVenta El nuevo fechaVenta a modificar.
 	 */
@@ -319,7 +320,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo estadoEnum
+	 * Método encargado de retornar el valor del atributo estadoEnum
 	 * 
 	 * @return El estadoEnum asociado a la clase
 	 */
@@ -330,7 +331,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo estadoEnum
+	 * Método encargado de modificar el valor del atributo estadoEnum
 	 * 
 	 * @param estadoEnum El nuevo estadoEnum a modificar.
 	 */
@@ -339,7 +340,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo cantidad
+	 * Método encargado de retornar el valor del atributo cantidad
 	 * 
 	 * @return El cantidad asociado a la clase
 	 */
@@ -349,7 +350,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo cantidad
+	 * Método encargado de modificar el valor del atributo cantidad
 	 * 
 	 * @param cantidad El nuevo cantidad a modificar.
 	 */
@@ -358,7 +359,8 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * @see java.lang.Object#toString()
+	 * Método encargado de mostrar la información de un Comic
+	 * @return Información de un Comic
 	 */
 	@Override
 	public String toString() {
@@ -373,7 +375,8 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * @see java.lang.Object#hashCode()
+	 * Método encargado de retornar el Hash Code de un Comic
+	 * @return Hash Code de un Comic
 	 */
 	@Override
 	public int hashCode() {
@@ -395,7 +398,9 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 * 
+	 * Método encargado de comparar si un Comic es igual a otro
+	 * @return True si los comics son iguales, de lo contrario False
 	 */
 	@Override
 	public boolean equals(Object obj) {

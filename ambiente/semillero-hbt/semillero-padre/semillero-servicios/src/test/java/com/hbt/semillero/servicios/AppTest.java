@@ -6,25 +6,14 @@ import org.testng.annotations.Test;
 import com.hbt.semillero.entidades.Comic;
 import com.hbt.semillero.entidades.EstadoENUM;
 
+
 /**
  * Clase utilizada para realizar las pruebas de la aplicación
  * 
  * @author Francisco Alejandro Hoyos Rojas
- *
+ * @version 1.0
  */
 public class AppTest {
-
-	/**
-	 * Método encargado de verificar que dos números se sumen correctamente
-	 */
-	@Test
-	public void primeraPU() {
-		Long resultadoEsperado = 150L;
-		Long sumandoUno = 100L;
-		Long sumandoDos = 50L;
-		Long resultado = sumandoUno + sumandoDos;
-		Assert.assertEquals(resultado, resultadoEsperado);
-	}
 
 	/**
 	 * Método encargado de verificar que una cadena se invierta correctamente.
@@ -33,9 +22,12 @@ public class AppTest {
 	 * 
 	 * 1) Cadena de letras 2) Cadena de números 3) Cadena con un palindromo 4)
 	 * Cadena vacía 5) Cadena con letras, números y caracteres
+	 * <b>Caso de Uso</b>
+	 * 
+	 * @author Francisco Alejandro Hoyos Rojas
 	 */
-	@Test
-	public void invertirCadenaPU() {
+	@Test(enabled=false)
+	public void invertirCadenaTest() {
 		String cadenaUno = "perro";
 		String cadenaUnoInvertida = "orrep";
 		String cadenaDos = "1234";
@@ -61,12 +53,13 @@ public class AppTest {
 
 	/**
 	 * 
-	 * Metodo encargado de usar el método toString() de la clase Comic <b>Caso de
-	 * Uso</b>
+	 * Metodo encargado de usar el método toString() de la clase Comic 
+	 * <b>Caso de Uso</b>
+	 * @author Francisco Alejandro Hoyos Rojas
 	 *
 	 */
-	@Test
-	public void toStringComicPU() {
+	@Test(enabled=false)
+	public void toStringComicTest() {
 		Comic comic = new Comic();
 		comic.setId("1");
 		comic.setNombre("Rick y Morty");
@@ -77,12 +70,13 @@ public class AppTest {
 
 	/**
 	 * 
-	 * Metodo encargado de probar los métodos de la enumeración EstadoENUM <b>Caso
-	 * de Uso</b>
+	 * Metodo encargado de probar los métodos de la enumeración EstadoENUM 
+	 * <b>Caso de Uso</b>
+	 * @author Francisco Alejandro Hoyos Rojas
 	 *
 	 */
-	@Test
-	public void metodosEstadoENUMPU() {
+	@Test(enabled=false)
+	public void metodosEstadoENUMTest() {
 		EstadoENUM estadoEnumActivo = EstadoENUM.ACTIVO;
 		EstadoENUM estadoEnumInactivo = EstadoENUM.INACTIVO;
 		EstadoENUM[] estadosEnum = { estadoEnumActivo, estadoEnumInactivo };
@@ -104,12 +98,16 @@ public class AppTest {
 		// values()
 		Assert.assertEquals(estadosEnum, EstadoENUM.values());
 	}
+	
+	
 
 	/**
 	 * Método utilizado para invertir una cadena
-	 * 
+	 * <b>Caso de Uso</b>
 	 * @param cadena, cadena que se va a invertir
 	 * @return cadena invertida o "" si la cadena es vacía
+	 * 
+	 * @author Francisco Alejandro Hoyos Rojas
 	 */
 	private String invertirCadena(String cadena) {
 

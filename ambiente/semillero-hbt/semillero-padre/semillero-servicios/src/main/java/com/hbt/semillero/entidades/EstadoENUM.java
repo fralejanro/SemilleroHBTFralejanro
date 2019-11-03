@@ -13,11 +13,14 @@ public enum EstadoENUM {
 	ACTIVO("enum.estado.activo"),
 	INACTIVO("enum.estado.activo");
 	
+	/**
+	 * Atributo que define el mensaje a ser mostrado por los estados
+	 */
 	private String codigoMensaje;
 
 	/**
 	 * Constructor de la clase.
-	 * @param codigoMensaje
+	 * @param codigoMensaje mensaje a ser mostrado por un estado
 	 */
 	private EstadoENUM(String codigoMensaje) {
 		this.codigoMensaje = codigoMensaje;
