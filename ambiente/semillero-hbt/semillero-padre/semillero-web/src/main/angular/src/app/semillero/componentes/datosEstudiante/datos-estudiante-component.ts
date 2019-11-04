@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 /**
  * @description  Componente datos estudiante, el cual contiene 
@@ -12,6 +12,16 @@ import { Component } from '@angular/core';
     styleUrls: ['./datos-estudiante-component.css']
 })
 
-export class DatosEstudianteComponent {
-    datosEstudiante = 'Franciso Alejandro Hoyos Rojas - Armenia';
+
+export class DatosEstudianteComponent implements OnInit {
+
+    datosEstudiante: string;
+
+    constructor(){
+    this.datosEstudiante = 'Francisco Alejandro Hoyos Rojas - Armenia'
+    }
+
+    ngOnInit() {
+
+    }
 }
