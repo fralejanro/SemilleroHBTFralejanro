@@ -25,10 +25,12 @@
             </div>
         </div>
     </div>
-    <button (click)="eliminarLibro(3)"
-    class="btn btn-danger">
-    Eliminar libro
-  </button>
-  {{ mensaje }}
-</div>
+    <button (click)="eliminarLibro(3)" class="btn btn-danger">
+        Eliminar libro
+    </button>
+    <br>
+    <br>
+    <div *ngIf="validar">{{ mensaje }}</div>
+    <div *ngIf="!validar">{{ mensaje }}</div>
 
+</div>
