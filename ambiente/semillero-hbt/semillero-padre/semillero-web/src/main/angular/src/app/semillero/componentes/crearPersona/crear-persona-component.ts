@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 /**
  * @description La clase CrearPersonaComponent permite crear personas
@@ -11,6 +11,13 @@ import { Component } from '@angular/core';
     styleUrls: ['./crear-persona-component.css']
 })
 
-export class CrearPersonaComponent {
-    
+export class CrearPersonaComponent implements OnInit{
+
+    constructor(){
+
+    }
+
+    ngOnInit(): void{
+        
+    }
 }

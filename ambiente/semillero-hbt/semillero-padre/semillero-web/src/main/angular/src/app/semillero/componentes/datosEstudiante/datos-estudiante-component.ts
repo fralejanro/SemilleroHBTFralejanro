@@ -15,13 +15,19 @@ import { Component, OnInit } from '@angular/core';
 
 export class DatosEstudianteComponent implements OnInit {
 
-    datosEstudiante: string;
+    /**
+     * Atributo que determina los datos del estudiante del semillero
+     */
+    public datosEstudiante: string;
 
-    constructor(){
-    this.datosEstudiante = 'Francisco Alejandro Hoyos Rojas - Armenia'
+    /**
+     * Constructor del componente
+     */
+    constructor() {
+        
     }
 
     ngOnInit() {
-
+        this.datosEstudiante = 'Francisco Alejandro Hoyos Rojas - Armenia'
     }
 }

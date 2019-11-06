@@ -44,6 +44,14 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['bienvenida']);
   }
 
+   /**
+   * @description Metodo encargado de direccionar al componente de gestionar libro
+   * @author Francisco Alejandro Hoyos Rojas <fralejanro@gmail.com>
+   */
+  public navegarGestionarLibro(): void {
+    this.router.navigate(['gestionar-libro']);
+  }
+
   public navegarGestionarCompra(): void {
     //WIP
   }
