@@ -3,6 +3,7 @@
  */
 package com.hbt.semillero.ejb;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -22,7 +23,7 @@ import com.hbt.semillero.entidades.Comic;
  */
 
 @Stateless
-public class GestionarComicBean {
+public class GestionarComicBean implements IGestionarComicLocal {
 	
 	/**
 	 * 
@@ -40,22 +41,9 @@ public class GestionarComicBean {
 	 * 
 	 * @param comicDTO Comic a crear
 	 */
-	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public void crearComic(ComicDTO comicDTO) {
-		Comic comic = new Comic();
-		comic.setId(comicDTO.getId());
-		comic.setNombre(comicDTO.getNombre());
-		comic.setEditorial(comicDTO.getEditorial());
-		comic.setTematicaEnum(comicDTO.getTematicaENUM());
-		comic.setColeccion(comicDTO.getColeccion());
-		comic.setNumeroPaginas(comicDTO.getNumeroPaginas());
-		comic.setPrecio(comicDTO.getPrecio());
-		comic.setAutores(comicDTO.getAutores());
-		comic.setFechaVenta(comicDTO.getFechaVenta());
-		comic.setColor(comicDTO.getColor());
-		comic.setFechaVenta(comicDTO.getFechaVenta());
-		comic.setEstadoEnum(comicDTO.getEstadoEnum());
-		comic.setCantidad(comicDTO.getCantidad());
+		Comic comic = convertirComicDTOToComic(comicDTO);
 		em.persist(comic);
 	}
 	
@@ -70,7 +58,7 @@ public class GestionarComicBean {
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void modificarComic(ComicDTO comicDTO) {
 		Comic comic = new Comic();
-		comic.setId(comicDTO.getId());
+		//comic.setId(comicDTO.getId());
 		em.merge(comicDTO);
 	}
 	
@@ -86,7 +74,8 @@ public class GestionarComicBean {
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public ComicDTO consultarComic(String id) {
 		Comic comic = em.find(Comic.class, id);
-		return new ComicDTO(comic.getId(), comic.getNombre());	
+		ComicDTO comicDTO = convertirComicToComicDTO(comic);
+		return comicDTO;
 	}
 	
 	/**
@@ -103,4 +92,126 @@ public class GestionarComicBean {
 		List<Comic> resultList = (List<Comic>) em.createQuery("Select c from Comic").getResultList();
 		return null;
 	}
+
+	/**
+	 * 
+	 * Método encargado de modificar un Comic
+	 * <b>Caso de Uso</b>
+	 * @author Francisco Alejandro Hoyos Rojas
+	 * 
+	 * @param id id del comic a modificar
+	 * @param nombre nuevo nombre del comic
+	 * @param comicDTO comic a modificar
+	 */
+	@Override
+	//@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public void modificarComic(Long id, String nombre, ComicDTO comicNuevo) {
+		Comic comicModificar;
+		if(comicNuevo == null) {
+			comicModificar = em.find(Comic.class, id);
+		}else {
+			comicModificar = convertirComicDTOToComic(comicNuevo);
+		}
+		//TODO
+		comicModificar.setNombre(nombre);
+		em.merge(comicModificar);
+		
+	}
+
+	/**
+	 * 
+	 * Método encargado de eliminar un Comic
+	 * <b>Caso de Uso</b>
+	 * @author Francisco Alejandro Hoyos Rojas
+	 * 
+	 * @param idComic id del comic a eliminar
+	 */
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public void eliminarComic(Long idComic) {
+		Comic comic = em.find(Comic.class, idComic);
+		if(comic!=null) {
+			em.remove(comic);
+		}
+	}
+
+	/**
+	 * 
+	 * Método encargado de consultar todos los comics
+	 * <b>Caso de Uso</b>
+	 * @author Francisco Alejandro Hoyos Rojas
+	 * 
+	 */
+	@Override
+	public List<ComicDTO> consultarComics() {
+		List<ComicDTO> resultadosComicDTO = new ArrayList<ComicDTO>();
+		List<Comic> resultados = em.createQuery("select c from Comic c").getResultList();
+		for (Comic comic: resultados) {
+			resultadosComicDTO.add(convertirComicToComicDTO(comic));
+		}
+		return resultadosComicDTO;
+	}
+	
+	/**
+	 * 
+	 * Método encargado de converir un ComicDTO a un Comic
+	 * <b>Caso de Uso</b>
+	 * @author Francisco Alejandro Hoyos Rojas
+	 * 
+	 * @param comicDTO ComicDTO que va a ser convertido a Comic
+	 * @return Un Comic
+	 */
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	private Comic convertirComicDTOToComic(ComicDTO comicDTO) {
+		Comic comic = new Comic();
+		if(comicDTO.getId()!=null) {
+			comicDTO.setId(comic.getId().toString());
+        }
+		comicDTO.setId(comic.getId().toString());
+		comic.setNombre(comicDTO.getNombre());
+		comic.setEditorial(comicDTO.getEditorial());
+		comic.setTematicaEnum(comicDTO.getTematicaENUM());
+		comic.setColeccion(comicDTO.getColeccion());
+		comic.setNumeroPaginas(comicDTO.getNumeroPaginas());
+		comic.setPrecio(comicDTO.getPrecio());
+		comic.setAutores(comicDTO.getAutores());
+		comic.setFechaVenta(comicDTO.getFechaVenta());
+		comic.setColor(comicDTO.getColor());
+		comic.setFechaVenta(comicDTO.getFechaVenta());
+		comic.setEstadoEnum(comicDTO.getEstadoEnum());
+		comic.setCantidad(comicDTO.getCantidad());
+		return comic;
+	}
+	
+	
+	/**
+	 * 
+	 * Método encargado de converir un Comic a un ComicDTO
+	 * <b>Caso de Uso</b>
+	 * @author Francisco Alejandro Hoyos Rojas
+	 * 
+	 * @param comic Comic que va a ser convertido a ComicDTO
+	 * @return Un ComicDTO
+	 */
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	private ComicDTO convertirComicToComicDTO(Comic comic) {
+        ComicDTO comicDTO = new ComicDTO();
+        if(comic.getId()!=null) {
+         comicDTO.setId(comic.getId().toString());
+        }
+        comicDTO.setNombre(comic.getNombre());
+        comicDTO.setEditorial(comic.getEditorial());
+        comicDTO.setTematicaENUM(comic.getTematicaEnum());
+        comicDTO.setColeccion(comic.getColeccion());
+        comicDTO.setNumeroPaginas(comic.getNumeroPaginas());
+        comicDTO.setPrecio(comic.getPrecio());
+        comicDTO.setAutores(comic.getAutores());
+        comicDTO.setColor(comic.getColor());
+        comicDTO.setFechaVenta(comic.getFechaVenta());
+        comicDTO.setEstadoEnum(comic.getEstadoEnum());
+        comicDTO.setCantidad(comic.getCantidad());
+        return comicDTO;
+    }
+	
+	
 }

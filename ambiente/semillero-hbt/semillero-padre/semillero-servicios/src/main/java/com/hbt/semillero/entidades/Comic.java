@@ -33,7 +33,7 @@ public class Comic implements Serializable {
 	/**
 	 * Atributo que define el identificador unico del comic
 	 */
-	private String id;
+	private Long id;
 	/**
 	 * Atributo que determina el Nombre o titulo del comic o revista grafica
 	 */
@@ -107,7 +107,7 @@ public class Comic implements Serializable {
 	 * @param cantidad      Cantidad de comics en inventario disponibles para la
 	 *                      venta
 	 */
-	public Comic(String id, String nombre, String editorial, TematicaENUM tematicaEnum, String coleccion,
+	public Comic(Long id, String nombre, String editorial, TematicaENUM tematicaEnum, String coleccion,
 			Integer numeroPaginas, BigDecimal precio, String autores, Boolean color, LocalDate fechaVenta,
 			EstadoENUM estadoEnum, Long cantidad) {
 		super();
@@ -134,7 +134,7 @@ public class Comic implements Serializable {
 	@Column(name = "SCID")
 	@SequenceGenerator(allocationSize = 1, name = "COMIC_SCID_GENERATOR", sequenceName = "SEQ_COMIC")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "COMIC_SCID_GENERATOR")
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -143,7 +143,7 @@ public class Comic implements Serializable {
 	 * 
 	 * @param id El nuevo id a modificar.
 	 */
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

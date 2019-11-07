@@ -61,7 +61,7 @@ public class AppTest {
 	@Test(enabled=false)
 	public void toStringComicTest() {
 		Comic comic = new Comic();
-		comic.setId("1");
+		comic.setId(1L);
 		comic.setNombre("Rick y Morty");
 		Assert.assertTrue(
 				comic.toString().equals("Comic [id=" + comic.getId() + ", nombre=" + comic.getNombre() + " ]"));
