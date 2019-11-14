@@ -119,7 +119,7 @@ public class EjerciciosPOJO {
 	 * @throws Exception
 	 */
 	public void ejercicio9()throws Exception{
-		new Exception();
+	 throw	new Exception();
 	}
 	/**
 	 * 
