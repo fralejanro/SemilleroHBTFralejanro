@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="3" total="4" passed="1">
+<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="84" started-at="2019-11-08T00:29:04Z" finished-at="2019-11-08T00:29:04Z">
+  <suite name="Default suite" duration-ms="78" started-at="2019-11-14T01:01:18Z" finished-at="2019-11-14T01:01:18Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="84" started-at="2019-11-08T00:29:04Z" finished-at="2019-11-08T00:29:04Z">
-      <class name="com.hbt.semillero.servicios.AppTest">
-        <test-method status="PASS" signature="prueba()[pri:0, instance:com.hbt.semillero.servicios.AppTest@1593948d]" name="prueba" duration-ms="21" started-at="2019-11-08T00:29:04Z" finished-at="2019-11-08T00:29:04Z">
+    <test name="Default test" duration-ms="78" started-at="2019-11-14T01:01:18Z" finished-at="2019-11-14T01:01:18Z">
+      <class name="com.hbt.semillero.servicios.EjerciciosTest">
+        <test-method status="PASS" signature="ejercicio5()[pri:0, instance:com.hbt.semillero.servicios.EjerciciosTest@482f8f11]" name="ejercicio5" duration-ms="26" started-at="2019-11-14T01:01:18Z" finished-at="2019-11-14T01:01:18Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- prueba -->
-      </class> <!-- com.hbt.semillero.servicios.AppTest -->
+        </test-method> <!-- ejercicio5 -->
+      </class> <!-- com.hbt.semillero.servicios.EjerciciosTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
