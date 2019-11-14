@@ -110,17 +110,7 @@ public class EjerciciosPOJO {
 		resultadosTenis.put(tenista,juegosGanados);
 	}
 	
-	/**
-	 * 
-	 * Metodo encargado de manejar Excepción
-	 * <b>Caso de Uso</b>
-	 * @author fralejanro
-	 * 
-	 * @throws Exception
-	 */
-	public void ejercicio9()throws Exception{
-	 throw	new Exception();
-	}
+
 	/**
 	 * 
 	 * Metodo encargado de 
@@ -145,6 +135,18 @@ public class EjerciciosPOJO {
 			}
 			return monedas;
 		}
+	}
+	
+	/**
+	 * 
+	 * Metodo encargado de manejar Excepción
+	 * <b>Caso de Uso</b>
+	 * @author fralejanro
+	 * 
+	 * @throws Exception
+	 */
+	public void ejercicio9()throws Exception{
+	 throw	new Exception();
 	}
 
 	/**
