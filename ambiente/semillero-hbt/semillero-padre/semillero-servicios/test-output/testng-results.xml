@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="3" total="4" passed="0">
+<testng-results skipped="0" failed="1" ignored="4" total="5" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="108" started-at="2019-11-14T02:06:09Z" finished-at="2019-11-14T02:06:09Z">
+  <suite name="Default suite" duration-ms="110" started-at="2019-11-14T02:39:20Z" finished-at="2019-11-14T02:39:20Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="108" started-at="2019-11-14T02:06:09Z" finished-at="2019-11-14T02:06:09Z">
+    <test name="Default test" duration-ms="110" started-at="2019-11-14T02:39:20Z" finished-at="2019-11-14T02:39:20Z">
       <class name="com.hbt.semillero.servicios.EjerciciosTest">
-        <test-method status="FAIL" signature="ejercicio8()[pri:0, instance:com.hbt.semillero.servicios.EjerciciosTest@482f8f11]" name="ejercicio8" duration-ms="34" started-at="2019-11-14T02:06:09Z" finished-at="2019-11-14T02:06:09Z">
+        <test-method status="FAIL" signature="ejercicio11()[pri:0, instance:com.hbt.semillero.servicios.EjerciciosTest@482f8f11]" name="ejercicio11" duration-ms="41" started-at="2019-11-14T02:39:20Z" finished-at="2019-11-14T02:39:20Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [true] but found [false]]]>
@@ -18,7 +18,7 @@ at org.testng.Assert.fail(Assert.java:96)
 at org.testng.Assert.failNotEquals(Assert.java:776)
 at org.testng.Assert.assertTrue(Assert.java:44)
 at org.testng.Assert.assertTrue(Assert.java:54)
-at com.hbt.semillero.servicios.EjerciciosTest.ejercicio8(EjerciciosTest.java:91)
+at com.hbt.semillero.servicios.EjerciciosTest.ejercicio11(EjerciciosTest.java:109)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -49,7 +49,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ejercicio8 -->
+        </test-method> <!-- ejercicio11 -->
       </class> <!-- com.hbt.semillero.servicios.EjerciciosTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

@@ -17,12 +17,12 @@ import java.util.Map;
  * @version 1.0
  */
 public class EjerciciosPOJO {
-	
+
 	/**
 	 * Atributo que determina la lista de numeros
 	 */
 	private List<Integer> listaNumeros = null;
-	
+
 	/**
 	 * Atributo que representa los resultados de un partido de tenis
 	 */
@@ -75,12 +75,12 @@ public class EjerciciosPOJO {
 
 	/**
 	 * 
-	 * Metodo encargado de sumarle años a la edad de cada persona
-	 * <b>Caso de Uso</b>
+	 * Metodo encargado de sumarle años a la edad de cada persona <b>Caso de Uso</b>
+	 * 
 	 * @author fralejanro
 	 * 
 	 * @param fechaNacimiento fecha de nacimiento de una persona
-	 * @param años años de una persona
+	 * @param años            años de una persona
 	 * @return true si la suma es igual 2019 de lo contrario false
 	 */
 	public boolean ejercicio4(String fechaNacimiento, int años) {
@@ -94,59 +94,89 @@ public class EjerciciosPOJO {
 		return false;
 
 	}
+
 	/**
 	 * 
-	 * Metodo encargado de 
-	 * <b>Caso de Uso</b>
+	 * Metodo encargado de <b>Caso de Uso</b>
+	 * 
 	 * @author fralejanro
 	 * 
 	 * @param tenista
 	 * @param juegosGanados
 	 */
-	public void agregarResultadosPartido(String tenista, Integer [] juegosGanados) {
-		if(resultadosTenis==null) {
+	public void agregarResultadosPartido(String tenista, Integer[] juegosGanados) {
+		if (resultadosTenis == null) {
 			resultadosTenis = new LinkedHashMap<String, Integer[]>();
 		}
-		resultadosTenis.put(tenista,juegosGanados);
+		resultadosTenis.put(tenista, juegosGanados);
 	}
-	
 
 	/**
 	 * 
-	 * Metodo encargado de 
-	 * <b>Caso de Uso</b>
+	 * Metodo encargado de <b>Caso de Uso</b>
+	 * 
 	 * @author fralejanro
 	 * 
 	 * @param cantidadDevuelta
 	 * @return
 	 */
-	public Integer [] calcularDevuelta(Integer cantidadDevuelta) {
-		Integer [] monedas = {0,0,0,0,0};
-		Integer [] monedasDisponibles = {1000,500,200,100,50};
-		if(cantidadDevuelta<0) {
+	public Integer[] calcularDevuelta(Integer cantidadDevuelta) {
+		Integer[] monedas = { 0, 0, 0, 0, 0 };
+		Integer[] monedasDisponibles = { 1000, 500, 200, 100, 50 };
+		if (cantidadDevuelta < 0) {
 			return monedas;
-		}else {
-			for (int i=0; i<monedasDisponibles.length;i++) {
-				monedas[i]=(int)Math.floor(cantidadDevuelta/monedasDisponibles[i]);
-				cantidadDevuelta = cantidadDevuelta-(monedas[i]*monedasDisponibles[i]);
-				if(cantidadDevuelta==0) {
+		} else {
+			for (int i = 0; i < monedasDisponibles.length; i++) {
+				monedas[i] = (int) Math.floor(cantidadDevuelta / monedasDisponibles[i]);
+				cantidadDevuelta = cantidadDevuelta - (monedas[i] * monedasDisponibles[i]);
+				if (cantidadDevuelta == 0) {
 					return monedas;
 				}
 			}
 			return monedas;
 		}
 	}
-	
+
 	/**
 	 * 
-	 * Metodo encargado de manejar Excepción
-	 * <b>Caso de Uso</b>
+	 * Metodo encargado de manejar Excepción <b>Caso de Uso</b>
+	 * 
 	 * @author fralejanro
 	 * 
 	 * @throws Exception
 	 */
-	public void ejercicio9()throws Exception{
-	 throw	new Exception();
+	public void ejercicio9() throws Exception {
+		throw new Exception();
+	}
+
+	/**
+	 * 
+	 * Metodo encargado de calcular el siguiente número de una secuencia <b>Caso de
+	 * Uso</b>
+	 * 
+	 * @author fralejanro
+	 * 
+	 * @param numero con el que se utilizara para calcular el siguiete numero
+	 * @return el siguiente número de la secuencia, de lo contrario una cadena vacia
+	 */
+	public String secuenciaNumeros(Integer numero) {
+		String resultado = "";
+		if (numero > 0 && numero < 100) {
+			String numeroToString = numero.toString();
+			Integer numero1 = Integer.parseInt(numeroToString.charAt(0) + "");
+			Integer numero2 = Integer.parseInt(numeroToString.charAt(1) + "");
+			Integer suma = numero1 + numero2;
+			for (int i = 0; i <= 9; i++) {
+				for (int j = 0; j <= 9; j++) {
+					if ((i + j == (suma + 1))) {
+						resultado = i + "" + j;
+						return resultado;
+					}
+				}
+			}
+		} 
+			return resultado;
+
 	}
 
 	/**
@@ -164,7 +194,7 @@ public class EjerciciosPOJO {
 		}
 		listaNumeros.add(numero);
 	}
-	
+
 	/**
 	 * 
 	 * Método encargado de ordenar la lista de números de manear ascendente
@@ -179,6 +209,7 @@ public class EjerciciosPOJO {
 
 	/**
 	 * Metodo encargado de retornar el valor del atributo listaNumeros
+	 * 
 	 * @return El listaNumeros asociado a la clase
 	 */
 	public List<Integer> getListaNumeros() {
@@ -187,12 +218,11 @@ public class EjerciciosPOJO {
 
 	/**
 	 * Metodo encargado de modificar el valor del atributo listaNumeros
+	 * 
 	 * @param listaNumeros El nuevo listaNumeros a modificar.
 	 */
 	public void setListaNumeros(List<Integer> listaNumeros) {
 		this.listaNumeros = listaNumeros;
 	}
 
-	
-	
 }

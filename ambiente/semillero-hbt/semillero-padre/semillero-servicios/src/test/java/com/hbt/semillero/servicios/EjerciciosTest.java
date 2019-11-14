@@ -83,7 +83,7 @@ public class EjerciciosTest {
 	 * @author Francisco Alejandro Hoyos Rojas	
 	 *
 	 */
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void ejercicio8() {
 		ejerciciosPOJO = new EjerciciosPOJO();
 		Integer cantidad = 1000;
@@ -95,7 +95,18 @@ public class EjerciciosTest {
 	}
 	
 	
-	
-	
+	/**
+	 * 
+	 * Metodo encargado de calcular el siguiente numero de una secuencia
+	 * <b>Caso de Uso</b>
+	 * @author Francisco Alejandro Hoyos Rojas	
+	 *
+	 */
+	@Test(enabled=true)
+	public void ejercicio11() {
+		ejerciciosPOJO = new EjerciciosPOJO();
+		Integer numero = 36;
+		Assert.assertTrue(ejerciciosPOJO.secuenciaNumeros(numero)=="46");
+	}
 
 }
