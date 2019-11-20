@@ -1,6 +1,8 @@
 
 package com.hbt.semillero.servicios;
 
+import java.util.regex.Pattern;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.hbt.semillero.entidades.Comic;
@@ -122,4 +124,5 @@ public class AppTest {
 
 	}
 	
+
 }

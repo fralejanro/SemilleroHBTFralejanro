@@ -102,11 +102,10 @@ public class EjerciciosTest {
 	 * @author Francisco Alejandro Hoyos Rojas	
 	 *
 	 */
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void ejercicio11() {
 		ejerciciosPOJO = new EjerciciosPOJO();
 		Integer numero = 36;
-		Assert.assertTrue(ejerciciosPOJO.secuenciaNumeros(numero)=="46");
 	}
 
 }

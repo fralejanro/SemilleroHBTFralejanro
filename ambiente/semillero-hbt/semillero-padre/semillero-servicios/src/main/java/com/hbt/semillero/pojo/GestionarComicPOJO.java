@@ -34,9 +34,9 @@ public class GestionarComicPOJO {
 	 * @return Un nuevo Comic
 	 * 
 	 */
-	public ComicDTO crearComicDTO(String id, String nombre, String editorial, TematicaENUM tematicaEnum,
+	public ComicDTO crearComicDTO(String id, String nombre, String editorial, String tematicaEnum,
 			String coleccion, Integer numeroPaginas, BigDecimal precio, String autores, Boolean color,
-			LocalDate fechaVenta, EstadoENUM estadoEnum, Long cantidad) {
+			LocalDate fechaVenta, String estadoEnum, Long cantidad) {
 
 		return new ComicDTO(id, nombre, editorial, tematicaEnum, coleccion, numeroPaginas, precio, autores, color,
 				fechaVenta, estadoEnum, cantidad);
@@ -54,7 +54,7 @@ public class GestionarComicPOJO {
 		comicDTO.setId("1");
 		comicDTO.setNombre("Dragon Ball Yamcha");
 		comicDTO.setEditorial("Planeta Comic");
-		comicDTO.setTematicaENUM(TematicaENUM.AVENTURAS);
+		comicDTO.setTematicaEnum(TematicaENUM.AVENTURAS.toString());
 		comicDTO.setColeccion("Manga Shonen");
 		comicDTO.setNumeroPaginas(100);
 		comicDTO.setPrecio(new BigDecimal(2100));
@@ -62,7 +62,7 @@ public class GestionarComicPOJO {
 		comicDTO.setFechaVenta(LocalDate.now());
 		comicDTO.setColor(Boolean.FALSE);
 		comicDTO.setFechaVenta(LocalDate.now());
-		comicDTO.setEstadoEnum(EstadoENUM.ACTIVO);
+		comicDTO.setEstadoEnum(EstadoENUM.ACTIVO.toString());
 		comicDTO.setCantidad(20L);
 		if (listaComics == null) {
 			listaComics = new ArrayList<ComicDTO>();

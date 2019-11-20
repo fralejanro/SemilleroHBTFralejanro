@@ -13,6 +13,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,6 +25,9 @@ import javax.persistence.Table;
  * @version 1.0
  */
 @Entity
+@NamedQueries({
+	@NamedQuery(name = Comic.CONSULTAR_COMIC_POR_NOMBRE, query = "select c from Comic c where UPPER(c.nombre)=:nombreComic")
+})
 @Table(name = "COMIC")
 public class Comic implements Serializable {
 
@@ -30,6 +35,11 @@ public class Comic implements Serializable {
 	 * Atributo que determina el número de serialización
 	 */
 	private static final long serialVersionUID = 4322034079745146450L;
+	
+	/**
+	 * Constante que identifica la consulta que permite buscar un comic por nombre
+	 */
+	public static final String CONSULTAR_COMIC_POR_NOMBRE = "consultarComicPorNombre";
 	/**
 	 * Atributo que define el identificador unico del comic
 	 */

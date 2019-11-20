@@ -3,6 +3,8 @@ import { ComicDTO } from '../../dto/comic.dto';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { GestionarComicService } from '../../services/gestionar.comic.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 /**
  * @description Componenete gestionar comic, el cual contiene la logica CRUD
@@ -35,10 +37,6 @@ export class GestionarComicComponent implements OnInit {
      * Atributo que contendra la lista de comics creados
      */
     public listaComics: Array<ComicDTO>;
-    /**
-     * Atributo que contendra el id del ultimo comic creado
-     */
-    public idComic: number = 0;
 
     /**
      * Atributo que indica si se envio a validar el formulario
@@ -50,7 +48,8 @@ export class GestionarComicComponent implements OnInit {
      * @author Francisco Alejandro Hoyos Rojas <fralejanro@gmail.com>
      */
     constructor(private fb: FormBuilder,
-        private router: Router) {
+        private router: Router,
+        private gestionarComicService: GestionarComicService) {
         this.gestionarComicForm = this.fb.group({
             nombre: [null, Validators.required],
             editorial: [null, Validators.required],
@@ -72,7 +71,9 @@ export class GestionarComicComponent implements OnInit {
         this.posicionComic = -1;
         this.comic = new ComicDTO();
         this.listaComics = new Array<ComicDTO>();
+        this.consultarComics();
     }
+
 
     /**
      * @description Metodo que permite validar el formulario y crear o actulizar un comic
@@ -84,34 +85,19 @@ export class GestionarComicComponent implements OnInit {
             return;
         }
         if (this.posicionComic == -1) {
-            this.idComic++;
-            this.comic = new ComicDTO();
-            this.comic.id = this.idComic + "";
-            this.comic.nombre = this.gestionarComicForm.controls.nombre.value;
-            this.comic.editorial = this.gestionarComicForm.controls.editorial.value;
-            this.comic.tematica = this.gestionarComicForm.controls.tematica.value;
-            this.comic.coleccion = this.gestionarComicForm.controls.coleccion.value;
-            this.comic.numeroPaginas = this.gestionarComicForm.controls.numeroPaginas.value;
-            this.comic.precio = this.gestionarComicForm.controls.precio.value;
-            this.comic.autores = this.gestionarComicForm.controls.autores.value;
-            this.comic.color = this.gestionarComicForm.controls.color.value;
-
-            this.listaComics.push(this.comic);
-
+            this.crearComic();
         } else {
             let comicActualizar: ComicDTO;
             comicActualizar = this.listaComics[this.posicionComic];
             comicActualizar.nombre = this.gestionarComicForm.controls.nombre.value;
             comicActualizar.editorial = this.gestionarComicForm.controls.editorial.value;
-            comicActualizar.tematica = this.gestionarComicForm.controls.tematica.value;
+            comicActualizar.tematicaEnum = this.gestionarComicForm.controls.tematica.value;
             comicActualizar.coleccion = this.gestionarComicForm.controls.coleccion.value;
             comicActualizar.numeroPaginas = this.gestionarComicForm.controls.numeroPaginas.value;
             comicActualizar.precio = this.gestionarComicForm.controls.precio.value;
             comicActualizar.autores = this.gestionarComicForm.controls.autores.value;
             comicActualizar.color = this.gestionarComicForm.controls.color.value;
             this.listaComics.splice(this.posicionComic, 1, comicActualizar);
-            console.log(this.listaComics.length + " tamaño");
-            console.log(this.posicionComic + " pos");
             this.posicionComic = -1;
 
         }
@@ -126,11 +112,11 @@ export class GestionarComicComponent implements OnInit {
          * @param posicionComicLista posicion del comic en la lista de comics
          * @author Francisco Alejandro Hoyos Rojas <fralejanro@gmail.com>
          */
-    public editarComic(comic: any, posicionComicLista: number): void {
+    public editarComic(comic: ComicDTO, posicionComicLista: number): void {
         this.posicionComic = posicionComicLista;
         this.gestionarComicForm.controls.nombre.setValue(comic.nombre);
         this.gestionarComicForm.controls.editorial.setValue(comic.editorial);
-        this.gestionarComicForm.controls.tematica.setValue(comic.tematica);
+        this.gestionarComicForm.controls.tematica.setValue(comic.tematicaEnum);
         this.gestionarComicForm.controls.coleccion.setValue(comic.coleccion);
         this.gestionarComicForm.controls.numeroPaginas.setValue(comic.numeroPaginas);
         this.gestionarComicForm.controls.precio.setValue(comic.precio);
@@ -138,10 +124,10 @@ export class GestionarComicComponent implements OnInit {
         this.gestionarComicForm.controls.color.setValue(comic.color);
     }
 
-/**
-     * @description Metodo que permite limpiar los campos del formulario
-     * @author Francisco Alejandro Hoyos Rojas <fralejanro@gmail.com>
-     */
+    /**
+         * @description Metodo que permite limpiar los campos del formulario
+         * @author Francisco Alejandro Hoyos Rojas <fralejanro@gmail.com>
+         */
     private limpiarFormulario(): void {
         this.submitted = false;
         this.gestionarComicForm.controls.nombre.setValue(null);
@@ -156,11 +142,18 @@ export class GestionarComicComponent implements OnInit {
 
     /**
      * @description Metodo que permite eliminar un comic
-     * @param posicionComicLista posicion del comic en la lista de comics
+     * @param idComic posicion del comic en la lista de comics
      * @author Francisco Alejandro Hoyos Rojas <fralejanro@gmail.com>
      */
-    public eliminarComic(posicionComicLista: number): void {
-        this.listaComics.splice(posicionComicLista, 1);
+    public eliminarComic(idComic: number): void {
+        this.gestionarComicService.eliminarComic(idComic).subscribe(resultadoDTO => {
+            if(resultadoDTO.exitoso) {
+                this.consultarComics();
+            }
+            console.log(resultadoDTO.mensajeEjecucion);
+        }, error => {
+            console.log(error);
+        });
     }
 
     /**
@@ -169,5 +162,45 @@ export class GestionarComicComponent implements OnInit {
      */
     get f() {
         return this.gestionarComicForm.controls;
+    }
+
+    /**
+     * @description Metodo encargado de consultar los comics existentes
+     * @author Francisco Alejandro Hoyos Rojas <fralejanro@gmail.com>
+     */
+    public consultarComics(): void {
+        this.gestionarComicService.consultarComics().subscribe(listaComics => {
+            this.listaComics = listaComics;
+        }, error => {
+            console.log(error);
+        });
+    }
+
+    /**
+     * @description Metodo encargado de consultar los comics existentes
+     * @author Francisco Alejandro Hoyos Rojas <fralejanro@gmail.com>
+     */
+    public crearComic(): void {
+        this.comic = new ComicDTO();
+        this.comic.nombre = this.gestionarComicForm.controls.nombre.value;
+        this.comic.editorial = this.gestionarComicForm.controls.editorial.value;
+        this.comic.tematicaEnum = this.gestionarComicForm.controls.tematica.value;
+        this.comic.coleccion = this.gestionarComicForm.controls.coleccion.value;
+        this.comic.numeroPaginas = this.gestionarComicForm.controls.numeroPaginas.value;
+        this.comic.precio = this.gestionarComicForm.controls.precio.value;
+        this.comic.autores = this.gestionarComicForm.controls.autores.value;
+        this.comic.color = this.gestionarComicForm.controls.color.value;
+        this.comic.estadoEnum = "INACTIVO";
+
+        this.gestionarComicService.crearComic(this.comic).subscribe(resultadoDTO => {
+            if(resultadoDTO.exitoso) {
+                this.consultarComics();
+                this.limpiarFormulario();
+            }else{
+                console.log(resultadoDTO.mensajeEjecucion);
+            }
+        }, error => {
+            console.log(error);
+        });
     }
 }

@@ -39,7 +39,7 @@ public class ComicDTO implements Serializable {
 	 * Atributo que permite identificar si el comic es de tipo AVENTURAS, BELICO,
 	 * HUMORISTICO, DEPORTIVO, FANTASTICO, CIENCIA_FICCION, HISTORICO, HORROR'
 	 */
-	private TematicaENUM tematicaEnum;
+	private String tematicaEnum;
 	/**
 	 * Atributo que determina el conjunto de publicaciones de la que el comic es
 	 * parte
@@ -69,7 +69,7 @@ public class ComicDTO implements Serializable {
 	/**
 	 * Atributo que define si el comic tiene existencia para la venta o no
 	 */
-	private EstadoENUM estadoEnum;
+	private String estadoEnum;
 	/**
 	 * Atributo que determina la cantidad de comics en inventario disponibles para
 	 * la venta
@@ -112,9 +112,9 @@ public class ComicDTO implements Serializable {
 	 * @param estadoEnum Define si el comic tiene existencia para la venta o no
 	 * @param cantidad Cantidad de comics en inventario disponibles para la venta
 	 */
-	public ComicDTO(String id, String nombre, String editorial, TematicaENUM tematicaEnum, String coleccion,
+	public ComicDTO(String id, String nombre, String editorial, String tematicaEnum, String coleccion,
 			Integer numeroPaginas, BigDecimal precio, String autores, Boolean color, LocalDate fechaVenta,
-			EstadoENUM estadoEnum, Long cantidad) {
+			String estadoEnum, Long cantidad) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -182,7 +182,7 @@ public class ComicDTO implements Serializable {
 	 * Método encargado de retornar el valor del atributo tematica
 	 * @return El tematica asociado a la clase
 	 */
-	public TematicaENUM getTematicaENUM() {
+	public String getTematicaEnum() {
 		return tematicaEnum;
 	}
 
@@ -190,7 +190,7 @@ public class ComicDTO implements Serializable {
 	 * Método encargado de modificar el valor del atributo tematica
 	 * @param tematica El nuevo tematica a modificar.
 	 */
-	public void setTematicaENUM(TematicaENUM tematicaEnum) {
+	public void setTematicaEnum(String tematicaEnum) {
 		this.tematicaEnum = tematicaEnum;
 	}
 
@@ -294,7 +294,7 @@ public class ComicDTO implements Serializable {
 	 * Método encargado de retornar el valor del atributo estado
 	 * @return El estado asociado a la clase
 	 */
-	public EstadoENUM getEstadoEnum() {
+	public String getEstadoEnum() {
 		return estadoEnum;
 	}
 
@@ -302,7 +302,7 @@ public class ComicDTO implements Serializable {
 	 * Método encargado de modificar el valor del atributo estado
 	 * @param estado El nuevo estado a modificar.
 	 */
-	public void setEstadoEnum(EstadoENUM estadoEnum) {
+	public void setEstadoEnum(String estadoEnum) {
 		this.estadoEnum = estadoEnum;
 	}
 

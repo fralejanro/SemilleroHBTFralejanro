@@ -56,7 +56,7 @@ export class ConsultarComicComponent implements OnInit {
         let datosComic = this.activatedRoute.snapshot.params;
         this.consultarComicForm.controls.nombre.setValue(datosComic.nombre);
         this.consultarComicForm.controls.editorial.setValue(datosComic.editorial);
-        this.consultarComicForm.controls.tematica.setValue(datosComic.tematica[0].toUpperCase() + datosComic.tematica.substr(1).toLowerCase());
+        this.consultarComicForm.controls.tematica.setValue(datosComic.tematicaEnum[0].toUpperCase() + datosComic.tematicaEnum.substr(1).toLowerCase());
         this.consultarComicForm.controls.coleccion.setValue(datosComic.coleccion);
         this.consultarComicForm.controls.numeroPaginas.setValue(datosComic.numeroPaginas);
         this.consultarComicForm.controls.precio.setValue(datosComic.precio);

@@ -129,13 +129,13 @@
                         <tr *ngFor="let comic of listaComics;let i=index;">
                             <th scope="row">{{comic.id}}</th>
                             <td>{{comic.nombre | uppercase }}</td>
-                            <td>{{comic.tematica | lowercase }}</td>
+                            <td>{{comic.tematicaEnum | titlecase }}</td>
                             <td>{{comic.precio | number: '.2'}}</td>
                             <td>{{comic.color ? 'Si' : 'No' }}</td>
                             <td>
                                 <i class="fas fa-search 2x ml-1" [routerLink]="['/consultar-comic',comic]"title="Consultar"></i>
                                 <i class="fas fa-pencil-alt 2x ml-1"  (click)="editarComic(comic, i)" title="Editar"></i>
-                                <i class="far fa-times-circle 2x ml-1" (click)="eliminarComic(i)" title="Eliminar"></i>
+                                <i class="far fa-times-circle 2x ml-1" (click)="eliminarComic(comic.id)" title="Eliminar"></i>
                             </td>
                         </tr>
                     </tbody>

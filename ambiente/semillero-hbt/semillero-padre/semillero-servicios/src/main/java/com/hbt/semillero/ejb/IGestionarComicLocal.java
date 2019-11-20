@@ -26,7 +26,7 @@ public interface IGestionarComicLocal {
 	 * 
 	 * @param comicNuevo informacion nueva a crear
 	 */
-	public void crearComic(ComicDTO comicNuevo);
+	public Boolean crearComic(ComicDTO comicNuevo);
 
 	/**
 	 * 
@@ -46,7 +46,7 @@ public interface IGestionarComicLocal {
 	 * 
 	 * @param comicEliminar informacion a eliminar
 	 */
-	public void eliminarComic(Long idComic);
+	public Boolean  eliminarComic(Long idComic);
 
 	/**
 	 * 
