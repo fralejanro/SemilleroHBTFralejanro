@@ -10,12 +10,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './semillero/componentes/menu/menu-component';
 import { BienvenidaComponent } from './semillero/componentes/home/bienvenida-component';
-import { CrearPersonaComponent } from './semillero/componentes/crearPersona/crear-persona-component';
 import { GestionarComicComponent } from './semillero/componentes/gestionarComic/gestionar-comic';
 import { ConsultarComicComponent } from './semillero/componentes/gestionarComic/consultarComic/consultar-comic-component';
 
 // DTOs
 export { ComicDTO } from './semillero/dto/comic.dto';
+export { ProveedorDTO} from './semillero/dto/proveedor.dto';
+export { PersonaDTO} from './semillero/dto/persona.dto';
 export { ResultadoDTO } from './semillero/dto/resultado.dto';
 
 //Manejo de servicios
@@ -23,15 +24,19 @@ export { ResultadoDTO } from './semillero/dto/resultado.dto';
 import {EjemploService} from './semillero/services/ejemplo.service';
 import {AbstractService} from './semillero/services/template.service';
 import {GestionarComicService} from './semillero/services/gestionar.comic.service';
+import {GestionarProveedorService} from './semillero/services/gestionar.proveedor.service';
+import { CrearProveedorComponent } from './semillero/componentes/gestionarProveedor/crearProveedor/crear-proveedor-component';
+import { GestionarProveedorComponent } from './semillero/componentes/gestionarProveedor/gestionar-proveedor-component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     BienvenidaComponent,
-    CrearPersonaComponent,
     GestionarComicComponent,
-    ConsultarComicComponent
+    ConsultarComicComponent,
+    CrearProveedorComponent,
+    GestionarProveedorComponent
   ],
   imports: [
     BrowserModule,

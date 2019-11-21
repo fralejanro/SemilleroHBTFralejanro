@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.ejb.EJB;
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
@@ -25,9 +27,12 @@ import com.hbt.semillero.entidades.Proveedor;
  * @version 1.0
  */
 
+@LocalBean
 @Stateless
 public class GestionarProvedorBean implements IGestionarProveedorLocal{
 
+	@EJB 
+	private GestionarPersonaBean gestionarPersonaBean ;
 	
 	/**
 	 * 
@@ -44,13 +49,12 @@ public class GestionarProvedorBean implements IGestionarProveedorLocal{
 	 * @param personaDTO Persona a crear
 	 */
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public Boolean crearProveedor(ProveedorDTO proveedorDTO, PersonaDTO personaDTO) {
-		GestionarPersonaBean gestionarPersonaBean = new GestionarPersonaBean();
-		if (gestionarPersonaBean.consultarPersonaPorNombre(personaDTO.getNombre())==null&&
+	public Boolean crearProveedor(ProveedorDTO proveedorDTO) {
+		if (gestionarPersonaBean.consultarPersonaPorNombre(proveedorDTO.getPersonaDTO().getNombre())==null&&
 				consultarProveedorPorDireccion(proveedorDTO.getDireccion())==null&&
 				consultarTodosLosProveedores().size()<30) {
 			
-			em.persist(convertirProveedorDTOToProveedor(proveedorDTO,gestionarPersonaBean.crearPersona(personaDTO)));
+			em.persist(convertirProveedorDTOToProveedor(proveedorDTO,gestionarPersonaBean.crearPersona(proveedorDTO.getPersonaDTO())));
 			
 			return Boolean.TRUE;
 		}

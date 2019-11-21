@@ -42,7 +42,7 @@ public class ProveedorDTO implements Serializable{
 	/**
 	 * Atributo que define la persona que representa legalmente al proveedor
  	 */
-	private Persona persona;
+	private PersonaDTO personaDTO;
 	
 	/**
 	 * Atributo que define el monto del credito
@@ -67,13 +67,13 @@ public class ProveedorDTO implements Serializable{
 	 * @param estado define si un proveedor esta activo o inactivo
 	 * @param persona define la persona que representa legalmente al proveedor
 	 */
-	public ProveedorDTO(String id, String direccion, LocalDate fechaCreacion, String estado, Persona persona, BigDecimal montoCredito) {
+	public ProveedorDTO(String id, String direccion, LocalDate fechaCreacion, String estado, PersonaDTO personaDTO, BigDecimal montoCredito) {
 		super();
 		this.id = id;
 		this.direccion = direccion;
 		this.fechaCreacion = fechaCreacion;
 		this.estado = estado;
-		this.persona = persona;
+		this.personaDTO = personaDTO;
 		this.montoCredito = montoCredito;
 	}
 
@@ -149,16 +149,16 @@ public class ProveedorDTO implements Serializable{
 	 * Método encargado de retornar el valor del atributo persona
 	 * @return La persona asociada a la clase
 	 */
-	public Persona getPersona() {
-		return persona;
+	public PersonaDTO getPersonaDTO() {
+		return personaDTO;
 	}
 
 	/**
 	 * Método encargado de modificar el valor del atributo persona
 	 * @param persona La nueva persona a modificar.
 	 */
-	public void setPersona(Persona persona) {
-		this.persona = persona;
+	public void setPersonaDTO(PersonaDTO personaDTO) {
+		this.personaDTO = personaDTO;
 	}
 
 

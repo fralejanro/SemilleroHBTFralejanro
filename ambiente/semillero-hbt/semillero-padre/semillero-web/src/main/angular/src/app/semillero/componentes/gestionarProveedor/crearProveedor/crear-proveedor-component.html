@@ -1,0 +1,105 @@
+<div class="container">
+    <form [formGroup]="crearProveedorForm">
+        <div class="row">
+            <div class="col-6">
+                <label for="nombrePersona">Nombre:</label>
+                <input type="text" class="form-control" id="nombrePersona" formControlName="nombre"
+                    [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" maxlength="50">
+                <div *ngIf="submitted && f.nombre.errors">
+                    <span class="text-danger" *ngIf="f.nombre.errors.required">Campo requerido.</span>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <label for="numeroIdentificacionPersona">Número Identificación:</label>
+                <input type="number" class="form-control" id="numeroIdentificacionPersona" formControlName="numeroIdentificacion"
+                [ngClass]="{ 'is-invalid': submitted && f.numeroIdentificacion.errors }">
+                <div *ngIf="submitted && f.numeroIdentificacion.errors">
+                    <span class="text-danger" *ngIf="f.numeroIdentificacion.errors.required">Campo requerido.</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <div class="form-group">
+                    <label for="tipoVia">Tipo de vía:</label>
+                    <select class="form-control" id="tipoVia" formControlName="tipoVia">
+                        <option value="CALLE">CALLE</option>
+                        <option value="CARRERA">CARRERA</option>
+                    </select>
+                    <div *ngIf="submitted && f.tipoVia.errors">
+                        <span class="text-danger" *ngIf="f.tipoVia.errrors.required">Campo requerido.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <label for="numeroUno">#</label>
+                <input type="number" class="form-control" id="numeroUno" formControlName="numeroUno"
+                [ngClass]="{ 'is-invalid': submitted && f.numeroUno.errors }">
+                <div *ngIf="submitted && f.numeroUno.errors">
+                    <span class="text-danger" *ngIf="f.numeroUno.errors.required">Campo requerido.</span>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <label for="numeroDos">#</label>
+                <input type="number" class="form-control" id="numeroDos" formControlName="numeroDos"
+                [ngClass]="{ 'is-invalid': submitted && f.numeroDos.errors }">
+                <div *ngIf="submitted && f.numeroDos.errors">
+                    <span class="text-danger" *ngIf="f.numeroDos.errors.required">Campo requerido.</span>
+                </div>
+            </div>
+            <div class="col-4">
+                <label for="informacionAdicional">Edificio, Apartamento, Manzana, Casa:</label>
+                <input type="text" class="form-control" id="informacionAdicional" formControlName="informacionAdicional">
+                <div *ngIf="submitted && f.informacionAdicional.errors">
+                    <span class="text-danger" *ngIf="f.informacionAdicional.errors.required">Campo requerido.</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-4">
+                <label for="fechaCreacionProveedor">Fecha Creación:</label>
+                <input type="date" class="form-control" id="fechaCreacionProveedor" formControlName="fechaCreacion"
+                    [ngClass]="{ 'is-invalid': submitted && f.fechaCreacion.errors }" maxlength="50">
+                <div *ngIf="submitted && f.fechaCreacion.errors">
+                    <span class="text-danger" *ngIf="f.fechaCreacion.errors.required">Campo requerido.</span>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="estadoProveedor">Estado</label>
+                    <select class="form-control" id="estadoProveedor" formControlName="estado">
+                        <option value="ACTIVO">ACTIVO</option>
+                        <option value="INACTIVO">INACTIVO</option>
+                    </select>
+                    <div *ngIf="submitted && f.estado.errors">
+                        <span class="text-danger" *ngIf="f.estado.errrors.required">Campo requerido.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <label for="montoCreditoProveedor">Monto Credito</label>
+                <input type="number" class="form-control" id="montoCreditoProveedor" formControlName="montoCredito"
+                    [ngClass]="{ 'is-invalid': submitted && f.montoCredito.errors }" maxlength="50">
+                <div *ngIf="submitted && f.montoCredito.errors">
+                    <span class="text-danger" *ngIf="f.montoCredito.errors.required">Campo requerido.</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <span></span>
+            </div>
+            <div class="col-6 text-right">
+                <button type="button" class="btn btn-primary" (click)="crearProveedor()">Crear/Editar</button>
+            </div>
+        </div>
+
+
+    </form>
+
+</div>

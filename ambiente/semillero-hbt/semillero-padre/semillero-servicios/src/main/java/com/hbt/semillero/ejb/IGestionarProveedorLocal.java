@@ -27,10 +27,9 @@ public interface IGestionarProveedorLocal {
 	 * @author Francisco Alejandro Hoyos Rojas
 	 * 
 	 * @param proveedorDTO proveedor a ser creado
-	 * @param personaDTO   persona que representa al proveedor
 	 * @return True si el proveedor fue creado, de lo contrario false
 	 */
-	public Boolean crearProveedor(ProveedorDTO proveedorDTO, PersonaDTO personaDTO);
+	public Boolean crearProveedor(ProveedorDTO proveedorDTO);
 	
 	/**
 	 * 
